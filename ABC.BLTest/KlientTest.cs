@@ -61,5 +61,50 @@ namespace ABC.BLTest
 
             Assert.AreEqual(3, Klient.Counter);
         }
+
+        [TestMethod]
+        public void ValidateCorrectTest()
+        {
+            Klient klient1 = new Klient();
+            klient1.Imie = "Tomasz";
+            klient1.Email = "tomasz@gmail.com";
+            klient1.Nazwisko = "Nowak";
+            var expected = true;
+
+            bool actual = klient1.Validate();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateUncorrectEmailTest()
+        {
+            Klient klient1 = new Klient();
+            klient1.Imie = "Tomasz";
+            klient1.Nazwisko = "Nowak";
+            var expected = false;
+
+            bool actual = klient1.Validate();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ValidateUncorrectNazwiskoTest()
+        {
+            Klient klient1 = new Klient();
+            klient1.Imie = "Tomasz";
+            klient1.Email = "tomasz@gmail.com";
+            var expected = false;
+
+            //var klient2 = new Klient(100);
+            //var klient3 = new Klient();
+
+            bool actual = klient1.Validate();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
     }
 }
