@@ -1,7 +1,10 @@
-﻿namespace ABC.BL
+﻿using System;
+
+namespace ABC.BL
 {
     public class Klient
     {
+        public static int Counter { get; set; }
         private string _nazwisko;
         public string Nazwisko
         {
@@ -25,7 +28,15 @@
         {
             get
             {
-                return Nazwisko + "," + Imie;
+                if(string.IsNullOrWhiteSpace(Nazwisko)==true || string.IsNullOrWhiteSpace(Imie) == true)
+                {
+                    return Nazwisko + Imie;
+                }
+                else
+                {
+                    return Nazwisko + ", " + Imie;
+                }
+
             }
         }
 
