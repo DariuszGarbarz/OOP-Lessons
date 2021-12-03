@@ -17,8 +17,8 @@ namespace ABC.BL
         }
 
         public List<Address> AddressList { get; set; }
-        
 
+        public int ClientType { get; set; }
         public static int Counter { get; set; }
         private string _nazwisko;
         public string Nazwisko
