@@ -1,13 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ABC.BL
 {
     public class KlientRepository
     {
+        private AddressRepository addressRepository { get; set; }
         public KlientRepository()
         {
-
+            addressRepository = new AddressRepository();
         }
+
+        
 
         /// <summary>
         /// We are going to save current Client
@@ -28,6 +32,7 @@ namespace ABC.BL
         {
 
             Klient klient = new Klient(klientId); // Adding new Client
+            klient.AddressList = addressRepository.LoadByClientId(klientId).ToList();
 
             //Hard coding for test purposes
             if (klientId == 1)

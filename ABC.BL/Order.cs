@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ABC.BL
 {
@@ -16,6 +17,9 @@ namespace ABC.BL
 
         public int OrderId { get; private set; }
         public DateTimeOffset? OrderDate { get; set; }
+        public List<OrderPosition> orderPosition { get; set; }
+        public int KlientId { get; set; }
+        public int DeliveryAddressId { get; set; }
 
         public Order Load(int orderId)
         {

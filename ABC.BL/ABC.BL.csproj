@@ -41,11 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="AddressRepository.cs" />
     <Compile Include="Klient.cs" />
     <Compile Include="KlientRepository.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderPosition.cs" />
+    <Compile Include="OrderPositionView.cs" />
     <Compile Include="OrderRepository.cs" />
+    <Compile Include="OrderViewcs.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
