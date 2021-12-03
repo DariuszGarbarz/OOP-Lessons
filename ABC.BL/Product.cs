@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ABC.BL
 {
-    public class Product
+    public class Product: BaseClass
     {
         public Product()
         {
@@ -19,22 +19,13 @@ namespace ABC.BL
         }
 
         public int ProduktId { get; private set; }
-
         public Decimal? CurrentPrice { get; set; }
         public string Description { get; set; }
         public string ProductName { get; set; }
 
-        public Product Load(int productId)
-        {
-            return new Product();
-        }
 
-        public bool Save()
-        {
-            return true;
-        }
 
-        public bool Validate()
+        public override bool Validate()
         {
             var correct = true;
 
@@ -44,6 +35,11 @@ namespace ABC.BL
             }
 
             return correct;
+        }
+
+        public override string ToString()
+        {
+            return ProductName;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ABC.BL
 {
-    public class Order
+    public class Order: BaseClass
     {
         public Order()
         {
@@ -21,17 +21,8 @@ namespace ABC.BL
         public int KlientId { get; set; }
         public int DeliveryAddressId { get; set; }
 
-        public Order Load(int orderId)
-        {
-            return new Order();
-        }
 
-        public bool Save()
-        {
-            return true;
-        }
-
-        public bool Validate()
+        public override bool Validate()
         {
             var correct = true;
 
@@ -42,5 +33,10 @@ namespace ABC.BL
 
             return correct;
         }
+        public override string ToString()
+        {
+            return OrderDate.Value.Date + " (" + OrderId + ")";
+        }
     }
+
 }

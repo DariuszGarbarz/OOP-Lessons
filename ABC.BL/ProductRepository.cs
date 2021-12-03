@@ -23,9 +23,24 @@
             return product;
         }
 
-        public bool Save()
+        public bool Save(Product product)
         {
-            return true;
+            var success = true;
+
+            if (product.HasChanges && product.IsValid)
+            {
+                if (product.IsNew)
+                {
+                    // insert procedure
+                }
+                else
+                {
+                    //update procedure
+                }
+            }
+
+
+            return success;
         }
     }
 }
