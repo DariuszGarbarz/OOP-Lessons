@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 
 namespace ABC.BL
 {
-    public class Order: BaseClass
+    public class Order: BaseClass, ILog
     {
         public Order()
         {
@@ -36,6 +37,15 @@ namespace ABC.BL
         public override string ToString()
         {
             return OrderDate.Value.Date + " (" + OrderId + ")";
+        }
+
+        public string Log()
+        {
+            var logText = OrderId + ": " +
+                            "Date: " + OrderDate.Value.Date + " " +
+                            "Status: " + ObjectCondition.ToString();
+
+            return logText;
         }
     }
 

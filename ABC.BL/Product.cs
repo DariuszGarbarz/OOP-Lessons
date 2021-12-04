@@ -3,7 +3,7 @@ using Common;
 
 namespace ABC.BL
 {
-    public class Product: BaseClass
+    public class Product: BaseClass, ILog
     {
         public Product()
         {
@@ -46,6 +46,16 @@ namespace ABC.BL
             return ProductName;
         }
 
-        
+        public string Log()
+        {
+            var logText = ProduktId + ": " +
+                            ProductName + " " +
+                            "Opis: " + Description + " " +
+                            "Status: " + ObjectCondition.ToString();
+
+            return logText;
+
+        }
+
     }
 }

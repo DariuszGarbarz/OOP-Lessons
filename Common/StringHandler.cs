@@ -4,28 +4,26 @@
     {
         public static string SpaceInsert(this string source)
         {
-            string resoult = string.Empty;
 
-            if (!string.IsNullOrWhiteSpace(source))
-            {
-                foreach (var letter in source)
-                {
-                    if (char.IsUpper(letter))
-                    {
-                        if (!string.IsNullOrEmpty(resoult))
-                        {
-                            resoult = resoult.Trim();
-                            resoult += " ";
-                        }
-                        
-                    }
-                    resoult += letter;
-                }
-                
-            }
-            return resoult;
+            var result = !string.IsNullOrWhiteSpace(source) ? CheckString(source) : string.Empty;
+            
+            return result;
         }
 
+        public static string CheckString(string source) 
+        { 
+                string result = string.Empty;
+                foreach (var letter in source)
+                {
+                    if (char.IsUpper(letter) && !string.IsNullOrEmpty(result))
+                    {
+                            result = result.Trim();
+                            result += " ";  
+                    }
+                    result += letter;
+                }
+                return result;
+        }
 
     }
 }

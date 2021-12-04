@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Common;
 
 namespace ABC.BL
 {
-    public class Klient: BaseClass
+    public class Klient: BaseClass, ILog
     {
         public Klient() : this(0)
         {
@@ -79,6 +80,17 @@ namespace ABC.BL
         public override string ToString()
         {
             return ImieNazwisko;
+        }
+
+        public string Log()
+        {
+            var logText = KlientId + ": " +
+                            ImieNazwisko + " " +
+                            "Email: " + Email + " " +
+                            "Status: " + ObjectCondition.ToString();
+
+            return logText;
+
         }
     }
 }
