@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 
 namespace ABC.BL
 {
-    public class Order
+    public class Order: BaseClass, ILog
     {
         public Order()
         {
@@ -21,17 +22,8 @@ namespace ABC.BL
         public int KlientId { get; set; }
         public int DeliveryAddressId { get; set; }
 
-        public Order Load(int orderId)
-        {
-            return new Order();
-        }
 
-        public bool Save()
-        {
-            return true;
-        }
-
-        public bool Validate()
+        public override bool Validate()
         {
             var correct = true;
 
@@ -42,5 +34,19 @@ namespace ABC.BL
 
             return correct;
         }
+        public override string ToString()
+        {
+            return OrderDate.Value.Date + " (" + OrderId + ")";
+        }
+
+        public string Log()
+        {
+            var logText = OrderId + ": " +
+                            "Date: " + OrderDate.Value.Date + " " +
+                            "Status: " + ObjectCondition.ToString();
+
+            return logText;
+        }
     }
+
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Common;
 
 namespace ABC.BL
 {
-    public class Klient
+    public class Klient: BaseClass, ILog
     {
         public Klient() : this(0)
         {
@@ -55,7 +56,7 @@ namespace ABC.BL
             }
         }
 
-        public bool Validate()
+        public override bool Validate()
         {
             var correct = true;
             if (string.IsNullOrWhiteSpace(Nazwisko))
@@ -74,30 +75,22 @@ namespace ABC.BL
         /// We are going to save current Client
         /// </summary>
         /// <returns>bool</returns>
-        public bool Save()
+
+
+        public override string ToString()
         {
-            //
-            return true;
+            return ImieNazwisko;
         }
 
-        /// <summary>
-        /// We are going to load Client based on ID
-        /// </summary>
-        /// <param name="klientId"></param>
-        /// <returns>Klient</returns>
-        public Klient Load(int klientId)
+        public string Log()
         {
-            //
-            return new Klient();
-        }
+            var logText = KlientId + ": " +
+                            ImieNazwisko + " " +
+                            "Email: " + Email + " " +
+                            "Status: " + ObjectCondition.ToString();
 
-        /// <summary>
-        /// Load all Clients
-        /// </summary>
-        /// <returns></returns>
-        public List<Klient> Load()
-        {
-            return new List<Klient>();
+            return logText;
+
         }
     }
 }

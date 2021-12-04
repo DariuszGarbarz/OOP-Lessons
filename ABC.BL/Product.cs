@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Common;
 
 namespace ABC.BL
 {
-    public class Product
+    public class Product: BaseClass, ILog
     {
         public Product()
         {
@@ -19,22 +16,20 @@ namespace ABC.BL
         }
 
         public int ProduktId { get; private set; }
-
         public Decimal? CurrentPrice { get; set; }
         public string Description { get; set; }
-        public string ProductName { get; set; }
+        private string _productName;
 
-        public Product Load(int productId)
+        public string ProductName
         {
-            return new Product();
+            get { return _productName.SpaceInsert(); }
+            set { _productName = value; }
         }
 
-        public bool Save()
-        {
-            return true;
-        }
 
-        public bool Validate()
+
+
+        public override bool Validate()
         {
             var correct = true;
 
@@ -45,5 +40,22 @@ namespace ABC.BL
 
             return correct;
         }
+
+        public override string ToString()
+        {
+            return ProductName;
+        }
+
+        public string Log()
+        {
+            var logText = ProduktId + ": " +
+                            ProductName + " " +
+                            "Opis: " + Description + " " +
+                            "Status: " + ObjectCondition.ToString();
+
+            return logText;
+
+        }
+
     }
 }

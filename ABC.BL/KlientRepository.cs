@@ -17,10 +17,22 @@ namespace ABC.BL
         /// We are going to save current Client
         /// </summary>
         /// <returns>bool</returns>
-        public bool Save()
+        public bool Save(Klient client)
         {
-            
-            return true;
+            var success = true;
+
+            if (client.HasChanges && client.IsValid)
+            {
+                if (client.IsNew)
+                {
+                    // insert procedure
+                }
+                else
+                {
+                    //update procedure
+                }
+            }
+            return success;
         }
 
         /// <summary>

@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4407E15B-41F2-405F-B6C2-35A6107731EE}</ProjectGuid>
+    <ProjectGuid>{C23ECE65-BF26-4C96-958E-BDC93373CEB7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ABC.BL</RootNamespace>
-    <AssemblyName>ABC.BL</AssemblyName>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,25 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="AddressRepository.cs" />
-    <Compile Include="BaseClass.cs" />
-    <Compile Include="Klient.cs" />
-    <Compile Include="KlientRepository.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="OrderPosition.cs" />
-    <Compile Include="OrderPositionView.cs" />
-    <Compile Include="OrderRepository.cs" />
-    <Compile Include="OrderViewcs.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductRepository.cs" />
+    <Compile Include="ILog.cs" />
+    <Compile Include="LogService.cs" />
+    <Compile Include="StringHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{c23ece65-bf26-4c96-958e-bdc93373ceb7}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
