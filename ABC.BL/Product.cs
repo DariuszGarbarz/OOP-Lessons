@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Common;
 
 namespace ABC.BL
 {
@@ -21,7 +18,14 @@ namespace ABC.BL
         public int ProduktId { get; private set; }
         public Decimal? CurrentPrice { get; set; }
         public string Description { get; set; }
-        public string ProductName { get; set; }
+        private string _productName;
+
+        public string ProductName
+        {
+            get { return _productName.SpaceInsert(); }
+            set { _productName = value; }
+        }
+
 
 
 
@@ -41,5 +45,7 @@ namespace ABC.BL
         {
             return ProductName;
         }
+
+        
     }
 }
